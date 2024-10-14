@@ -50,7 +50,7 @@ async-std = { version = "1.8.0", features = [
 ] }
 
 # internal util
-lettre = "0.10.0-alpha.4"
+lettre = "0.9.6"
 
 # web
 rocket = { version = "0.5.0-rc.2", default-features = false, features = [

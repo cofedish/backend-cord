@@ -100,6 +100,11 @@ impl Database {
     /// Create an Authifier reference
     pub async fn to_authifier(self) -> Authifier {
         let config = config().await;
+        // Добавим логирование для проверки значений SMTP-конфигурации
+        log::info!("SMTP Host: {:?}", config.api.smtp.host);
+        log::info!("SMTP Username: {:?}", config.api.smtp.username);
+        log::info!("SMTP Port: {:?}", config.api.smtp.port);
+        log::info!("Using TLS: {:?}", config.api.smtp.use_tls);
 
         let mut auth_config = authifier::Config {
             email_verification: if !config.api.smtp.host.is_empty() {
